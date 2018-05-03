@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">RSS</string>
+    <string name="rssfeed">http://g1.globo.com/dynamo/rss2.xml</string>
+    <string name="timeset">TimeSet</string>
+    <string name="dois">300000</string>
+    <string-array name="SetTime">
+        <item>30 min</item>
+        <item>1h</item>
+        <item>3h</item>
+        <item>6h</item>
+        <item>12h</item>
+        <item>24h</item>
+
+    </string-array>
+    <string-array name="SetTimeValues">
+        <item>1800000</item>
+        <item>3600000</item>
+        <item>10800000</item>
+        <item>21600000</item>
+        <item>43200000</item>
+        <item>86400000</item>
+    </string-array>
+</resources>

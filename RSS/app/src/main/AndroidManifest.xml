@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="br.ufpe.cin.if1001.rss">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:authorities="br.ufpe.cin.if1001.rss.leitura"
+            android:name=".db.RssProvider"
+            android:exported="true"
+            android:enabled="true"></provider>
+        <service android:name=".services.DownloadViaServices"
+        android:enabled="true">
+        </service>
+        <service android:name=".ui.MyJob"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+
+        </service>
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.ConfigActivity" />
+        <receiver
+            android:name=".util.NovaNoticia"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="nova-noticia" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".util.FimDoServiceDownload"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="fim-service" />
+            </intent-filter>
+        </receiver>
+
+        <!--<provider
+            android:name=".db.RssProvider"
+            android:authorities="br.ufpe.cin.residencia.rss"
+            android:enabled="true"
+            android:exported="true"></provider>-->
+    </application>
+
+</manifest>
